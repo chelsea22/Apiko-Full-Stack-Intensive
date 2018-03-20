@@ -24,6 +24,14 @@ function scrollToPageTop() {
     window.scrollTo(0, 0);
 }
 
+function validatePosts(posts) {
+    return posts.filter(post => post.body && post.title && post.id);
+}
+
+function validateComments(comments) {
+    return comments.filter(comment => comment.body && comment.name && comment.id);
+}
+
 // Redirect
 function goHome() {
     history.pushState(null, null, 'index.html');
@@ -171,6 +179,7 @@ function createAllAuthorPosts(){
 function displayPosts() {
     fetch(postsEndpoint)
         .then(blob => blob.json())
+        .then(data => validatePosts(data))
         .then(data => state.posts = [ ...data ])
         .then(createPosts)
         .catch(err => createError())
@@ -187,6 +196,7 @@ function displaySinglePost(id) {
 function displayComments(id) {
     fetch(`${commentsEndpoint}?postId=${id}`)
         .then(blob => blob.json())
+        .then(data => validateComments(data))
         .then(data => state.comments = [ ...data ])
         .then(createComments)
         .catch(err => createError())
@@ -203,6 +213,7 @@ function displayAuthor(id) {
 function displayAllAuthorPosts(id) {
     fetch(`${postsEndpoint}?userId=${id}`)
         .then(blob => blob.json())
+        .then(data => validatePosts(data))
         .then(data => state.posts = [ ...data ])
         .then(createAllAuthorPosts)
         .catch(err => createError())
