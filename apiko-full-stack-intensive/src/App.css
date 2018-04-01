@@ -1,28 +1,35 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 4rem;
+  box-shadow: 0px 1px 8px 0px #ada3a3;
+  margin-bottom: 1.5rem;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.App-mh-logo {
+  display: block;
+  float: left;
+  background-image: url(https://s3-eu-west-1.amazonaws.com/jssolutions/Article_Photo/home-page/apiko-logos/logo.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 118px;
+  height: 48px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
-.App-title {
-  font-size: 1.5em;
+.App-logo :focus{
+  outline: none;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.App-wrapper {
+  max-width: 800px;
+  display: flex;
+  align-self: center;
 }
