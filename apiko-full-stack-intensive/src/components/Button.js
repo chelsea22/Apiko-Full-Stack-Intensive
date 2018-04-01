@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`
+const StyledButton = styled.button`
   cursor: pointer;
   border: 2px solid #ada3a3;
   border-radius: 20px;
@@ -17,7 +17,10 @@ const Button = styled.button`
     box-shadow: 0 0 7px 3px #806d6d;
   }
 `
+const Button = ({ onClick, children }) => (
+  <StyledButton onClick={onClick}>
+    {children}
+  </StyledButton>
+);
 
-const MoreButton = ({ onClick }) => <Button onClick={onClick}>More</Button>;
-
-export default MoreButton;
+export default Button;

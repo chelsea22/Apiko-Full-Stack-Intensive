@@ -17,7 +17,6 @@ const PostHeader = styled.h2`
   text-align: center;
   font-style: oblique;
   text-decoration: none;
-  padding: .5em 0;
 `
 const PostBody = styled.p`
   text-indent: 1rem;

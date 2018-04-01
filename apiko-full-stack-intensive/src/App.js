@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import PostList from './posts/PostList';
+import Posts from './posts/PostsContainer';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
           <a className="App-mh-logo" href="/">{""}</a>
         </div>
         <div className="App-wrapper">
-          <PostList />
+          <Posts />
         </div>
       </div>
     );

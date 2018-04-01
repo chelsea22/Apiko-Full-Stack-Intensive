@@ -7,7 +7,7 @@ const SearchContainer = styled.div`
   margin-bottom: 1rem;
 `
 
-const Search = styled.input`
+const StyledSearch = styled.input`
   padding: .15rem .5rem;
   font-size: .95rem;
   &:focus{
@@ -22,9 +22,9 @@ const ClearIcon = styled.svg`
   width: 1rem;
 `
 
-const PostSearch = ({ value, onSearch }) => (
+const Search = ({ value, onSearch }) => (
   <SearchContainer>
-    <Search 
+    <StyledSearch 
       onChange={(e) => onSearch(e.target.value.substr(0,30))}
       value={value}
       placeholder="Search..." 
@@ -38,4 +38,4 @@ const PostSearch = ({ value, onSearch }) => (
   </SearchContainer>
 );
 
-export default PostSearch;
+export default Search;

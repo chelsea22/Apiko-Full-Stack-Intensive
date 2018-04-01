@@ -1,12 +1,9 @@
 import React from 'react';
-import data from '../data.json';
-import PostSearch from './PostSearch';
 import PostListItem from './PostListItem';
-import MoreButton from './MoreButton';
-import NoItemsMessage from './NoItemsMessage';
+import Search from '../components/Search';
+import Message from '../components/Message';
+import Button from '../components/Button';
 import styled from 'styled-components';
-
-const posts = data;
 
 const PostsContainer = styled.div`
   display: flex;
@@ -23,9 +20,12 @@ class PostList extends React.Component{
     super(props);
     this.state = {
       endOfList: 10,
-      list: posts,
+      list: this.props.posts,
       searchValue: '',
     }
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ list: nextProps.posts });
   }
   handleMoreClick = () => {
     this.setState(prevState => ({ endOfList: prevState.endOfList + 10 }));
@@ -41,15 +41,15 @@ class PostList extends React.Component{
     });
     return(
       <PostsContainer>
-        <PostSearch value={searchValue} onSearch={this.handleSearch} />
+        <Search value={searchValue} onSearch={this.handleSearch} />
         {filteredList.length > 0
           ? <PostsListContainer innerRef={ref => this.container = ref }>
             {filteredList.slice(0, endOfList).map(post => <PostListItem key={post.id} post={post} />)}
           </PostsListContainer>
-          : <NoItemsMessage />
+          : <Message>No items found.</Message>
         }
         {filteredList.length > 5 &&
-          <MoreButton onClick={this.handleMoreClick}/>
+          <Button onClick={this.handleMoreClick}>More</Button>
         }
       </PostsContainer>
     );
