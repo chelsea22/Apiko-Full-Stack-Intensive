@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Posts from './posts/PostsContainer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 class App extends Component {
   render() {
@@ -10,7 +11,9 @@ class App extends Component {
           <a className="App-mh-logo" href="/">{""}</a>
         </div>
         <div className="App-wrapper">
-          <Posts />
+          <ErrorBoundary>
+            <Posts />
+          </ErrorBoundary>
         </div>
       </div>
     );

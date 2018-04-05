@@ -22,14 +22,17 @@ const PostBody = styled.p`
   text-indent: 1rem;
 `
 
-const Post = ({ post }) => {
-  return(
-    <PostContainer>
-      <NumberSpan>{post.id}.</NumberSpan>
-      <PostHeader>{post.title.charAt(0).toUpperCase() + post.title.slice(1)}</PostHeader>
-      <PostBody>{post.body.charAt(0).toUpperCase() + post.body.slice(1)}</PostBody>
-    </PostContainer>
-  );
+class Post extends React.PureComponent{
+  render(){
+    const { post } = this.props;
+    return(
+      <PostContainer>
+        <NumberSpan>{post.id}.</NumberSpan>
+        <PostHeader>{post.title.charAt(0).toUpperCase() + post.title.slice(1)}</PostHeader>
+        <PostBody>{post.body.charAt(0).toUpperCase() + post.body.slice(1)}</PostBody>
+      </PostContainer>
+    );
+  }
 }
 
 export default Post;

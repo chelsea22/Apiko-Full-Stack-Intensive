@@ -53,11 +53,11 @@ class PostsContainer extends React.Component {
 
   render() {
     const { loading, showError, posts } = this.state;
-    if (loading){
+    if (loading) {
       return(
         <Spinner />
       );
-    } else if (showError)  {
+    } else if (showError) {
       return(
         <PostsLoadingErrorMessage onTryAgain={this.handleTryAgain} />
       );
